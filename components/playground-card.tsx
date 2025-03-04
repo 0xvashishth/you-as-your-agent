@@ -310,36 +310,36 @@ Please:
       {/* Component Showcase */}
       <Card className="border-2 border-slate-300 bg-slate-50 shadow-md dark:bg-slate-900 dark:border-slate-700">
         <CardHeader 
-          className="flex flex-row items-center justify-between border-b border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 cursor-pointer py-2"
+          className="flex flex-row items-center justify-between border-b border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-800 cursor-pointer py-3 px-4 rounded-t-md"
           onClick={() => {
             console.log("toggling component collapse state:", !isCollapsed);
             setIsCollapsed(!isCollapsed);
           }}
         >
-          <CardTitle className="text-lg font-mono font-medium">{title}</CardTitle>
+          <CardTitle className="text-lg font-mono font-medium text-slate-800 dark:text-slate-200">{title}</CardTitle>
           <Button 
             variant="ghost" 
             size="sm" 
-            className="h-6 w-6 p-0" 
+            className="h-8 w-8 p-0 transition-transform duration-200 hover:scale-105" 
             aria-label={isCollapsed ? "expand component" : "collapse component"}
             tabIndex={-1} // Prevents independent focus from the header
             onClick={(e) => e.stopPropagation()} // Prevents double-triggering
           >
             {isCollapsed ? (
-              <ChevronDown className="h-4 w-4" />
+              <ChevronDown className="h-5 w-5" />
             ) : (
-              <ChevronUp className="h-4 w-4" />
+              <ChevronUp className="h-5 w-5" />
             )}
           </Button>
         </CardHeader>
         {!isCollapsed && (
           <CardContent className="p-2">
             <Tabs defaultValue="rendered" orientation="vertical" className="flex">
-              <TabsList className="mr-4 h-auto flex-col space-y-1 bg-slate-200 dark:bg-slate-800 p-2 rounded-md self-start w-40">
-                <TabsTrigger value="rendered" className="justify-start font-mono text-xs w-full text-left">rendered output</TabsTrigger>
-                <TabsTrigger value="raw" className="justify-start font-mono text-xs w-full text-left">raw output</TabsTrigger>
-                <TabsTrigger value="code" className="justify-start font-mono text-xs w-full text-left">full code</TabsTrigger>
-                <TabsTrigger value="prompt" className="justify-start font-mono text-xs w-full text-left">AI prompt</TabsTrigger>
+              <TabsList className="mr-4 h-auto flex-col space-y-2 bg-slate-300 dark:bg-slate-700 p-2 rounded-md self-start w-40">
+                <TabsTrigger value="rendered" className="justify-start font-mono text-xs w-full text-left py-2 px-3 rounded-md hover:bg-slate-400 dark:hover:bg-slate-600">rendered output</TabsTrigger>
+                <TabsTrigger value="raw" className="justify-start font-mono text-xs w-full text-left py-2 px-3 rounded-md hover:bg-slate-400 dark:hover:bg-slate-600">raw output</TabsTrigger>
+                <TabsTrigger value="code" className="justify-start font-mono text-xs w-full text-left py-2 px-3 rounded-md hover:bg-slate-400 dark:hover:bg-slate-600">full code</TabsTrigger>
+                <TabsTrigger value="prompt" className="justify-start font-mono text-xs w-full text-left py-2 px-3 rounded-md hover:bg-slate-400 dark:hover:bg-slate-600">AI prompt</TabsTrigger>
               </TabsList>
               
               <div className="flex-1 relative">
